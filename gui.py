@@ -13,6 +13,7 @@ class Window():
 		self.entry = Entry(
 			font = ('Verdana', 30),
 			width = 18,
+			background = "#fff6de",
 			justify = RIGHT,
 			relief = FLAT,
 			)
@@ -27,7 +28,7 @@ class Window():
 				bg = '#98A1A5',
 			)
 			self.button[i]['text'] = text[i]
-			self.button[i].place(x = 25 + 114 * (i % 4), y = 80 + 70 * (i // 4))
+			self.button[i].place(x = 25 + 100 * (i % 4), y = 80 + 70 * (i // 4))
 		
 		for i in range(0, len(text) - 2):
 			self.button[i].bind('<ButtonRelease-1>', lambda i : self.entry.insert('end', str(self.entry.insert('end', self.button[ int(str(i.widget).replace('.!button', '')) - 1 ]['text'])).replace('None', '') )) if i != 0 else self.button[i].bind('<ButtonRelease-1>', lambda i : self.entry.insert('end', str(self.entry.insert('end', self.button[ 0 ]['text'])).replace('None', '') ))
@@ -51,7 +52,7 @@ class Window():
 
 root = Tk()
 root.title('Калькулятор')
-root.wm_geometry('500x500')
+root.wm_geometry('415x500')
 root.resizable(width=False, height=False)
 window = Window()
 root.mainloop()
